@@ -3,6 +3,7 @@ package com.opstty;
 import com.opstty.job.WordCount;
 import com.opstty.q1.Districts;
 import com.opstty.q2.Species;
+import com.opstty.q3.SpecieCount;
 import org.apache.hadoop.util.ProgramDriver;
 
 public class AppDriver {
@@ -17,6 +18,8 @@ public class AppDriver {
                     "A map/reduce program that lists the districts in the trees.csv.");
             programDriver.addClass("species", Species.class,
                     "A map/reduce program that lists the species in the trees.csv.");
+            programDriver.addClass("speciecount", SpecieCount.class,
+                    "A map/reduce program that counts the species in the trees.csv.");
 
             exitCode = programDriver.run(argv);
         } catch (Throwable throwable) {
