@@ -1,6 +1,7 @@
 package com.opstty;
 
 import com.opstty.job.WordCount;
+import com.opstty.q1.Districts;
 import org.apache.hadoop.util.ProgramDriver;
 
 public class AppDriver {
@@ -11,6 +12,8 @@ public class AppDriver {
         try {
             programDriver.addClass("wordcount", WordCount.class,
                     "A map/reduce program that counts the words in the input files.");
+            programDriver.addClass("districts", Districts.class,
+                    "A map/reduce program that lists the districts in the trees.csv.");
 
             exitCode = programDriver.run(argv);
         } catch (Throwable throwable) {
