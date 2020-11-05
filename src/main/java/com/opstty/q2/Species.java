@@ -1,28 +1,28 @@
-package com.opstty.q1;
+package com.opstty.q2;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-public class Districts {
+public class Species {
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
         if (otherArgs.length != 2) {
-            System.err.println("Usage: districts [input] [output]");
+            System.err.println("Usage: species [input] [output]");
             System.exit(2);
         }
-        Job job = Job.getInstance(conf, "districts");
-        job.setJarByClass(Districts.class);
-        job.setMapperClass(DistrictsMapper.class);
-        job.setCombinerClass(DistrictsReducer.class);
-        job.setReducerClass(DistrictsReducer.class);
+        Job job = Job.getInstance(conf, "species");
+        job.setJarByClass(Species.class);
+        job.setMapperClass(SpeciesMapper.class);
+        job.setCombinerClass(SpeciesReducer.class);
+        job.setReducerClass(SpeciesReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(NullWritable.class);
         // Set path

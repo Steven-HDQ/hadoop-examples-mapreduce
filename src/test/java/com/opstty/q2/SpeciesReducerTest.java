@@ -1,4 +1,4 @@
-package com.opstty.q1;
+package com.opstty.q2;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.NullWritable;
@@ -16,14 +16,14 @@ import java.util.Arrays;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class DistrictsReducerTest {
+public class SpeciesReducerTest {
     @Mock
     private Reducer.Context context;
-    private DistrictsReducer districtsReducer;
+    private SpeciesReducer speciesReducer;
 
     @Before
     public void setup() {
-        this.districtsReducer = new DistrictsReducer();
+        this.speciesReducer = new SpeciesReducer();
     }
 
     @Test
@@ -31,7 +31,7 @@ public class DistrictsReducerTest {
         String key = "key";
         IntWritable value = new IntWritable(1);
         Iterable<IntWritable> values = Arrays.asList(value, value, value);
-        this.districtsReducer.reduce(new Text(key), values, this.context);
+        this.speciesReducer.reduce(new Text(key), values, this.context);
         verify(this.context).write(new Text(key), NullWritable.get());
     }
 }
