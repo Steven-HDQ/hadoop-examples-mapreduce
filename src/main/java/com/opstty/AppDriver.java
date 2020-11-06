@@ -6,6 +6,7 @@ import com.opstty.q2.Species;
 import com.opstty.q3.SpecieCount;
 import com.opstty.q4.SpecieMaxHeight;
 import com.opstty.q5.SortHeight;
+import com.opstty.q6.OldestTree;
 import org.apache.hadoop.util.ProgramDriver;
 
 public class AppDriver {
@@ -27,6 +28,8 @@ public class AppDriver {
                             "specie in the trees.csv.");
             programDriver.addClass("sortheight", SortHeight.class,
                     "A map/reduce program that sorts the trees height from smallest to largest in the trees.csv.");
+            programDriver.addClass("oldesttree", OldestTree.class,
+                    "A map/reduce program that displays the district where the oldest tree is in the trees.csv.");
 
             exitCode = programDriver.run(argv);
         } catch (Throwable throwable) {
