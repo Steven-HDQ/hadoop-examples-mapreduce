@@ -6,7 +6,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 
-public class SortHeightReducer extends Reducer<Text, FloatWritable, FloatWritable, Text> {
+public class SortHeightReducer extends Reducer<FloatWritable, Text, FloatWritable, Text> {
 
     public void reduce(FloatWritable key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
